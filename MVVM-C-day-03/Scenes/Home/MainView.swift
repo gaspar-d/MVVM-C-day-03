@@ -53,6 +53,7 @@ class MainView: UIView {
 		buttonToSecondVC.addTarget(target, action: action, for: .touchUpInside)
 		
 		// FIXME: - Remember to ask this in the mentoring !!!
+		
 		print("Why it's being called on load?")
 	}
 }

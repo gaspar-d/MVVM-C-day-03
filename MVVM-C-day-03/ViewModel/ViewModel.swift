@@ -17,7 +17,7 @@ class ViewModel: NSObject {
 		
 		getData()
 	}
-	
+
 	private func getData() {
 		data = Model(labelA: "A", labelB: "B", labelC: "C")
 	}
