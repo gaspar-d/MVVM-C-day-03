@@ -15,7 +15,6 @@ class ThirdView: UIView {
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
-		
 		return label
 	}()
 	

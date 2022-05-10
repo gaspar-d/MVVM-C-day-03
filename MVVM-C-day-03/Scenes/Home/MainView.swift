@@ -8,19 +8,19 @@
 import UIKit
 
 protocol MainViewProtocol {
+	func setViewLabel(label: String)
 	func didButtonTapped(_ target: Any?, action: Selector)
 }
 
 class MainView: UIView {
 
-	private lazy var viewName: UILabel = {
+	private lazy var viewLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.text = "Scene A"
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
-		
 		return label
 	}()
 	
@@ -33,12 +33,11 @@ class MainView: UIView {
 	}()
 	
 	private lazy var stack: UIStackView = {
-		let stack = UIStackView(arrangedSubviews: [viewName, buttonSendToSecondVC])
+		let stack = UIStackView(arrangedSubviews: [viewLabel, buttonSendToSecondVC])
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		stack.axis = .vertical
 		stack.distribution = .equalCentering
 		stack.spacing = 20
-		
 		return stack
 	}()
 	
@@ -54,6 +53,10 @@ class MainView: UIView {
 }
 
 extension MainView: MainViewProtocol {
+	func setViewLabel(label: String) {
+		viewLabel.text = "Scene \(label)"
+	}
+	
 	func didButtonTapped(_ target: Any?, action: Selector) {
 		buttonSendToSecondVC.addTarget(target, action: action, for: .touchUpInside)
 		

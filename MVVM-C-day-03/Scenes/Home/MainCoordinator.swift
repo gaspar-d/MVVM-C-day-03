@@ -29,7 +29,10 @@ class MainCoordinator: Coordinator {
 	}
 	
 	public func start() {
-		let vc = MainViewController()
+		let model = Model(labelA: "A", labelB: "B", labelC: "C")
+		let vm = ViewModel(model: model)
+		let vc = MainViewController(viewModel: vm)
+		
 		vc.coordinator = self
 		navigationController.pushViewController(vc, animated: false)
 	}

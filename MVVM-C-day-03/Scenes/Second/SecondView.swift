@@ -20,7 +20,6 @@ class SecondView: UIView {
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
-		
 		return label
 	}()
 	
@@ -31,7 +30,6 @@ class SecondView: UIView {
 		button.backgroundColor = .systemBlue
 		button.tintColor = .white
 		button.layer.cornerRadius = 10
-		
 		return button
 	}()
 	
@@ -41,7 +39,6 @@ class SecondView: UIView {
 		stack.axis = .vertical
 		stack.distribution = .equalCentering
 		stack.spacing = 20
-		
 		return stack
 	}()
 	
