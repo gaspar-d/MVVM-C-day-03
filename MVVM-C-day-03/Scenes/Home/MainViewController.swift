@@ -25,8 +25,8 @@ final class MainViewController: UIViewController, Coordinating {
 		super.viewDidLoad()
 
 		buildView()
-		setupButtonAction()
-		setupViewLabel()
+		setUpViewLabel()
+		setUpButtonAction()
 	}
 	
 	private func buildView() {
@@ -36,19 +36,18 @@ final class MainViewController: UIViewController, Coordinating {
 		title = "Main"
 	}
 	
-	// TODO: - This worked well, let's do the same at Second and Third VC tomorrow.
-	private func setupViewLabel() {
+	private func setUpViewLabel() {
 		guard let viewModel = viewModel else {
 			return
 		}
 		customView?.setViewLabel(label: viewModel.getLabelA)
 	}
 	
-	private func setupButtonAction() {
-		customView?.didButtonTapped(self, action: #selector(buttonSendToSecondVCTapped))
+	private func setUpButtonAction() {
+		customView?.didButtonTapped(self, action: #selector(buttonToSecondVCTapped))
 	}
 	
-	@objc private func buttonSendToSecondVCTapped() {
+	@objc private func buttonToSecondVCTapped() {
 		coordinator?.eventOccurred(with: .sendToSecondView)
 	}
 }

@@ -8,18 +8,18 @@
 import Foundation
 
 protocol ViewTemplate {
-	func setup()
-	func setupComponents()
-	func setupConstraints()
-	func setupExtraConfigurations()
+	func setUp()
+	func setUpComponents()
+	func setUpConstraints()
+	func setUpExtraConfigurations()
 }
 
 extension ViewTemplate {
-	public func setup() {
-		setupComponents()
-		setupConstraints()
-		setupExtraConfigurations()
+	public func setUp() {
+		setUpComponents()
+		setUpConstraints()
+		setUpExtraConfigurations()
 	}
 	
-	public func setupExtraConfigurations() {}
+	public func setUpExtraConfigurations() {}
 }

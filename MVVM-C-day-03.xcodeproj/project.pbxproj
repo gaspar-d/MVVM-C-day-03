@@ -22,6 +22,9 @@
 		EBBB9FDA2829CE1400FD610B /* ViewTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FD92829CE1400FD610B /* ViewTemplate.swift */; };
 		EBBB9FDE2829EBD000FD610B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FDD2829EBD000FD610B /* Model.swift */; };
 		EBBB9FE02829EC0E00FD610B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FDF2829EC0E00FD610B /* ViewModel.swift */; };
+		EBBB9FE2282AC4F900FD610B /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */; };
+		EBBB9FE5282AC84300FD610B /* SecondFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE4282AC84300FD610B /* SecondFactory.swift */; };
+		EBBB9FE7282AC8D000FD610B /* ThirdFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE6282AC8D000FD610B /* ThirdFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		EBBB9FD92829CE1400FD610B /* ViewTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTemplate.swift; sourceTree = "<group>"; };
 		EBBB9FDD2829EBD000FD610B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EBBB9FDF2829EC0E00FD610B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		EBBB9FE4282AC84300FD610B /* SecondFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFactory.swift; sourceTree = "<group>"; };
+		EBBB9FE6282AC8D000FD610B /* ThirdFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +80,12 @@
 		EBBB9FAF2829B22300FD610B /* MVVM-C-day-03 */ = {
 			isa = PBXGroup;
 			children = (
-				EBBB9FDC2829EBC100FD610B /* ViewModel */,
-				EBBB9FDB2829EBBB00FD610B /* Model */,
-				EBBB9FD82829CDFE00FD610B /* Utils */,
 				EBBB9FC62829B30F00FD610B /* Navigation */,
+				EBBB9FDB2829EBBB00FD610B /* Model */,
+				EBBB9FDC2829EBC100FD610B /* ViewModel */,
 				EBBB9FC52829B2B600FD610B /* Scenes */,
 				EBBB9FC42829B29F00FD610B /* App */,
+				EBBB9FD82829CDFE00FD610B /* Utils */,
 			);
 			path = "MVVM-C-day-03";
 			sourceTree = "<group>";
@@ -110,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				EBBB9FC72829B32400FD610B /* Coordinator.swift */,
+				EBBB9FD62829C4C800FD610B /* MainCoordinator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -119,7 +126,7 @@
 			children = (
 				EBBB9FB42829B22300FD610B /* MainViewController.swift */,
 				EBBB9FCA2829B6EB00FD610B /* MainView.swift */,
-				EBBB9FD62829C4C800FD610B /* MainCoordinator.swift */,
+				EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			children = (
 				EBBB9FCE2829BBCB00FD610B /* SecondViewController.swift */,
 				EBBB9FD02829BBDE00FD610B /* SecondView.swift */,
+				EBBB9FE4282AC84300FD610B /* SecondFactory.swift */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 			children = (
 				EBBB9FD42829BBFF00FD610B /* ThirdViewController.swift */,
 				EBBB9FD22829BBEE00FD610B /* ThirdView.swift */,
+				EBBB9FE6282AC8D000FD610B /* ThirdFactory.swift */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -236,15 +245,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBBB9FE7282AC8D000FD610B /* ThirdFactory.swift in Sources */,
 				EBBB9FD32829BBEE00FD610B /* ThirdView.swift in Sources */,
 				EBBB9FD52829BBFF00FD610B /* ThirdViewController.swift in Sources */,
 				EBBB9FD12829BBDE00FD610B /* SecondView.swift in Sources */,
 				EBBB9FDE2829EBD000FD610B /* Model.swift in Sources */,
 				EBBB9FD72829C4C800FD610B /* MainCoordinator.swift in Sources */,
 				EBBB9FCF2829BBCB00FD610B /* SecondViewController.swift in Sources */,
+				EBBB9FE5282AC84300FD610B /* SecondFactory.swift in Sources */,
 				EBBB9FE02829EC0E00FD610B /* ViewModel.swift in Sources */,
 				EBBB9FC82829B32400FD610B /* Coordinator.swift in Sources */,
 				EBBB9FB52829B22300FD610B /* MainViewController.swift in Sources */,
+				EBBB9FE2282AC4F900FD610B /* HomeFactory.swift in Sources */,
 				EBBB9FDA2829CE1400FD610B /* ViewTemplate.swift in Sources */,
 				EBBB9FB12829B22300FD610B /* AppDelegate.swift in Sources */,
 				EBBB9FCB2829B6EB00FD610B /* MainView.swift in Sources */,

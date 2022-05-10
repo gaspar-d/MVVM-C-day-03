@@ -9,14 +9,24 @@ import UIKit
 
 final class SecondViewController: UIViewController, Coordinating {
 	weak var coordinator: Coordinator?
-	
 	private var customView: SecondView?
+	private var viewModel: ViewModel?
+	
+	init(viewModel: ViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		buildView()
-		setupButtonAction()
+		setUpViewLabel()
+		setUpButtonAction()
     }
 	
 	private func buildView() {
@@ -26,11 +36,16 @@ final class SecondViewController: UIViewController, Coordinating {
 		title = "Second"
 	}
 	
-	private func setupButtonAction() {
-		customView?.didButtonTapped(self, action: #selector(buttonSendToThirdVCTapped))
+	private func setUpViewLabel() {
+		guard let label = viewModel?.getLabelB else { return }
+		customView?.setViewLabel(label: label)
 	}
 	
-	@objc private func buttonSendToThirdVCTapped() {
+	private func setUpButtonAction() {
+		customView?.didButtonTapped(self, action: #selector(buttonToThirdVCTapped))
+	}
+	
+	@objc private func buttonToThirdVCTapped() {
 		coordinator?.eventOccurred(with: .sendToThirdView)
 	}
 }

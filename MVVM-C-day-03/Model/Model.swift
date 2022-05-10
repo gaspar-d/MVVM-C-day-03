@@ -8,7 +8,7 @@
 import Foundation
 
 struct Model {
-	var labelA: String?
-	var labelB: String?
-	var labelC: String?
+	var labelA: String
+	var labelB: String
+	var labelC: String
 }

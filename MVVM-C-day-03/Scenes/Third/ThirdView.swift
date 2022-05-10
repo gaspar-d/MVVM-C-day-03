@@ -11,7 +11,6 @@ class ThirdView: UIView {
 	private lazy var viewName: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "Scene C"
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
@@ -21,21 +20,25 @@ class ThirdView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		setup()
+		setUp()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	public func setViewLabel(label: String) {
+		viewName.text = "Scene \(label)"
+	}
 }
 
 extension ThirdView: ViewTemplate {
-	func setupComponents() {
+	func setUpComponents() {
 		addSubview(viewName)
 
 	}
 	
-	func setupConstraints() {
+	func setUpConstraints() {
 		NSLayoutConstraint.activate([
 			viewName.centerXAnchor.constraint(equalTo: centerXAnchor),
 			viewName.centerYAnchor.constraint(equalTo: centerYAnchor)
