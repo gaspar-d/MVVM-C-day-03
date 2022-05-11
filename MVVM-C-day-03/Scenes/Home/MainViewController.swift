@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class MainViewController: UIViewController, Coordinating {
+final class MainViewController: UIViewController {
 	var coordinator: Coordinator?
 	private var customView: MainView?
-	private var viewModel: ViewModel?
+	private var viewModel: MainViewModel?
 	
-	init(viewModel: ViewModel) {
+	init(viewModel: MainViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

@@ -13,9 +13,9 @@ class ThirdFactory {
 		
 		let model = Model(labelA: "", labelB: "", labelC: "")
 		let vm = ViewModel(model: model)
-		let vc = ThirdViewController(viewModel: vm)
+		let thirdVM = ThirdViewModel(viewModel: vm)
+		let vc = ThirdViewController(viewModel: thirdVM)
 		
 		return vc
 	}
-	
 }

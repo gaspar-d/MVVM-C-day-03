@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class SecondViewController: UIViewController, Coordinating {
+final class SecondViewController: UIViewController {
 	weak var coordinator: Coordinator?
 	private var customView: SecondView?
-	private var viewModel: ViewModel?
+	private var viewModel: SecondViewModel?
 	
-	init(viewModel: ViewModel) {
+	init(viewModel: SecondViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

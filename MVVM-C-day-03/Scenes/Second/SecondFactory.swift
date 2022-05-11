@@ -13,7 +13,8 @@ class SecondFactory {
 		
 		let model = Model(labelA: "", labelB: "", labelC: "")
 		let vm = ViewModel(model: model)
-		let vc = SecondViewController(viewModel: vm)
+		let secondVM = SecondViewModel(viewModel: vm)
+		let vc = SecondViewController(viewModel: secondVM)
 		
 		return vc
 	}
