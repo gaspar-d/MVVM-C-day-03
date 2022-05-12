@@ -29,8 +29,15 @@ class MainCoordinator: Coordinator {
 	}
 	
 	public func start() {
+		let model = Model(labelA: "", labelB: "", labelC: "")
+		let vm = ViewModel(model: model)
+		let mainVM = MainViewModel(viewModel: vm)
+		
+		
 		let vc = HomeFactory.make()
-		vc.coordinator = self
-		navigationController.pushViewController(vc, animated: false)
+//		vc.coordinator = self
+		mainVM.coordinator = self
+		vc.viewModel = mainVM
+		navigationController.show(vc, sender: self)
 	}
 }

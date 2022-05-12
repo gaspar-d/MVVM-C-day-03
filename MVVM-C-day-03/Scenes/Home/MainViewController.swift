@@ -8,9 +8,12 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-	var coordinator: Coordinator?
+	// TODO: -  This must be called in the ViewModel
+//	var coordinator: Coordinator?
+	// TODO: -
+	
 	private var customView: MainView?
-	private var viewModel: MainViewModel?
+	var viewModel: MainViewModel?
 	
 	init(viewModel: MainViewModel) {
 		self.viewModel = viewModel
@@ -48,6 +51,7 @@ final class MainViewController: UIViewController {
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
-		coordinator?.eventOccurred(with: .sendToSecondView)
+//		coordinator?.eventOccurred(with: .sendToSecondView)
+		viewModel?.pushSecondVC()
 	}
 }
