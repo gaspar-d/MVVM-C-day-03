@@ -8,7 +8,7 @@
 import Foundation
 
 class ThirdViewModel: NSObject {
-	
+	weak var coordinator: Coordinator?
 	private var viewModel: ViewModel
 	
 	init(viewModel: ViewModel) {

@@ -18,26 +18,19 @@ class MainCoordinator: Coordinator {
 		switch event {
 		case .sendToSecondView:
 			let vc = SecondFactory.make()
-			vc.coordinator = self
+			vc.viewModel?.coordinator = self
 			navigationController.pushViewController(vc, animated: true)
 			
 		case .sendToThirdView:
 			let vc = ThirdFactory.make()
-			vc.coordinator = self
+			vc.viewModel?.coordinator = self
 			navigationController.pushViewController(vc, animated: true)
 		}
 	}
 	
 	public func start() {
-		let model = Model(labelA: "", labelB: "", labelC: "")
-		let vm = ViewModel(model: model)
-		let mainVM = MainViewModel(viewModel: vm)
-		
-		
 		let vc = HomeFactory.make()
-//		vc.coordinator = self
-		mainVM.coordinator = self
-		vc.viewModel = mainVM
+		vc.viewModel?.coordinator = self
 		navigationController.show(vc, sender: self)
 	}
 }

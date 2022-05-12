@@ -8,7 +8,7 @@
 import Foundation
 
 class SecondViewModel: NSObject {
-	
+	weak var coordinator: Coordinator?
 	private var viewModel: ViewModel
 	
 	init(viewModel: ViewModel) {
@@ -18,5 +18,9 @@ class SecondViewModel: NSObject {
 	public var getLabelB: String {
 		guard let label = viewModel.data?.labelB else { return ""}
 		return label
+	}
+	
+	public func pushThirdVC() {
+		coordinator?.eventOccurred(with: .sendToThirdView)
 	}
 }

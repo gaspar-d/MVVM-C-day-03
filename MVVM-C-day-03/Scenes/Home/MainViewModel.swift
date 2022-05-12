@@ -8,10 +8,9 @@
 import Foundation
 
 class MainViewModel: NSObject {
-	
-	// TODO: - Try do this using protocols 
-	var coordinator: Coordinator?
-	public var viewModel: ViewModel?
+	// TODO: - Try do this using protocols
+	public var coordinator: Coordinator?
+	private var viewModel: ViewModel?
 	
 	init(viewModel: ViewModel) {
 		self.viewModel = viewModel
@@ -22,8 +21,19 @@ class MainViewModel: NSObject {
 		return label
 	}
 	
-	// TODO: - All this time I just needed to put it in a method and call it on MainVC
 	public func pushSecondVC() {
 		coordinator?.eventOccurred(with: .sendToSecondView)
 	}
 }
+
+//extension MainViewModel: MainViewControllerProtocol {
+//	public var getLabelA: String {
+//		guard let label = viewModel?.data?.labelA else { return ""}
+//		return label
+//	}
+//
+//	public func pushSecondVC() {
+//		coordinator?.eventOccurred(with: .sendToSecondView)
+//	}
+//}
+
