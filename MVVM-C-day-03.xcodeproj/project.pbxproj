@@ -86,11 +86,11 @@
 		EBBB9FAF2829B22300FD610B /* MVVM-C-day-03 */ = {
 			isa = PBXGroup;
 			children = (
+				EBBB9FC42829B29F00FD610B /* App */,
 				EBBB9FC62829B30F00FD610B /* Navigation */,
 				EBBB9FDB2829EBBB00FD610B /* Model */,
 				EBBB9FDC2829EBC100FD610B /* ViewModel */,
 				EBBB9FC52829B2B600FD610B /* Scenes */,
-				EBBB9FC42829B29F00FD610B /* App */,
 				EBBB9FD82829CDFE00FD610B /* Utils */,
 			);
 			path = "MVVM-C-day-03";
@@ -101,8 +101,8 @@
 			children = (
 				EBBB9FB02829B22300FD610B /* AppDelegate.swift */,
 				EBBB9FB22829B22300FD610B /* SceneDelegate.swift */,
-				EBBB9FBB2829B22500FD610B /* LaunchScreen.storyboard */,
 				EBBB9FB92829B22500FD610B /* Assets.xcassets */,
+				EBBB9FBB2829B22500FD610B /* LaunchScreen.storyboard */,
 				EBBB9FBE2829B22500FD610B /* Info.plist */,
 			);
 			path = App;
@@ -133,6 +133,7 @@
 				EBBB9FB42829B22300FD610B /* MainViewController.swift */,
 				EBBB9FCA2829B6EB00FD610B /* MainView.swift */,
 				EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */,
+				EBBB9FDF2829EC0E00FD610B /* MainViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -143,6 +144,7 @@
 				EBBB9FCE2829BBCB00FD610B /* SecondViewController.swift */,
 				EBBB9FD02829BBDE00FD610B /* SecondView.swift */,
 				EBBB9FE4282AC84300FD610B /* SecondFactory.swift */,
+				EBBDD2AC282C785D007A2701 /* SecondViewModel.swift */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -153,6 +155,7 @@
 				EBBB9FD42829BBFF00FD610B /* ThirdViewController.swift */,
 				EBBB9FD22829BBEE00FD610B /* ThirdView.swift */,
 				EBBB9FE6282AC8D000FD610B /* ThirdFactory.swift */,
+				EBBDD2AE282C7867007A2701 /* ThirdViewModel.swift */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -177,9 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				EBBDD2B0282C79D9007A2701 /* ViewModel.swift */,
-				EBBB9FDF2829EC0E00FD610B /* MainViewModel.swift */,
-				EBBDD2AC282C785D007A2701 /* SecondViewModel.swift */,
-				EBBDD2AE282C7867007A2701 /* ThirdViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

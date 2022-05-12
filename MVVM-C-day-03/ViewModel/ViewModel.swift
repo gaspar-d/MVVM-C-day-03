@@ -8,9 +8,8 @@
 import Foundation
 
 class ViewModel: NSObject {
-	
 	private var model: Model
-	public var data: Model?
+	private(set) var data: Model?
 	
 	init(model: Model) {
 		self.model = model

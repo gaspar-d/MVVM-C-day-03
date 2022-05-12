@@ -8,6 +8,7 @@
 import UIKit
 
 class ThirdView: UIView {
+	
 	private lazy var viewName: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false

@@ -8,9 +8,8 @@
 import UIKit
 
 final class ThirdViewController: UIViewController {
-	weak var coordinator: Coordinator?
 	private var customView: ThirdView?
-	private var viewModel: ThirdViewModel?
+	public var viewModel: ThirdViewModel?
 	
 	init(viewModel: ThirdViewModel) {
 		self.viewModel = viewModel

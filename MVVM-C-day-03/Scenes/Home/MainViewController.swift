@@ -7,10 +7,18 @@
 
 import UIKit
 
+// TODO: - Can be made using protocols
+// TODO: - https://medium.com/nerd-for-tech/mvvm-coordinators-ios-architecture-tutorial-fb27eaa36470
+protocol MainViewControllerProtocol: AnyObject {
+	var getLabelA: String { get }
+	func pushSecondVC()
+}
+// TODO: -
+
 final class MainViewController: UIViewController {
-	var coordinator: Coordinator?
 	private var customView: MainView?
-	private var viewModel: MainViewModel?
+	public var viewModel: MainViewModel?
+	weak var delegate: MainViewControllerProtocol?
 	
 	init(viewModel: MainViewModel) {
 		self.viewModel = viewModel
@@ -48,6 +56,8 @@ final class MainViewController: UIViewController {
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
-		coordinator?.eventOccurred(with: .sendToSecondView)
+		viewModel?.pushSecondVC()
 	}
 }
+
+
