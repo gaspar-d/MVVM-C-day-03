@@ -22,7 +22,7 @@
 		EBBB9FDA2829CE1400FD610B /* ViewTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FD92829CE1400FD610B /* ViewTemplate.swift */; };
 		EBBB9FDE2829EBD000FD610B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FDD2829EBD000FD610B /* Model.swift */; };
 		EBBB9FE02829EC0E00FD610B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FDF2829EC0E00FD610B /* MainViewModel.swift */; };
-		EBBB9FE2282AC4F900FD610B /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */; };
+		EBBB9FE2282AC4F900FD610B /* MainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE1282AC4F900FD610B /* MainFactory.swift */; };
 		EBBB9FE5282AC84300FD610B /* SecondFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE4282AC84300FD610B /* SecondFactory.swift */; };
 		EBBB9FE7282AC8D000FD610B /* ThirdFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB9FE6282AC8D000FD610B /* ThirdFactory.swift */; };
 		EBBDD2AD282C785D007A2701 /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBDD2AC282C785D007A2701 /* SecondViewModel.swift */; };
@@ -48,7 +48,7 @@
 		EBBB9FD92829CE1400FD610B /* ViewTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTemplate.swift; sourceTree = "<group>"; };
 		EBBB9FDD2829EBD000FD610B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EBBB9FDF2829EC0E00FD610B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		EBBB9FE1282AC4F900FD610B /* MainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFactory.swift; sourceTree = "<group>"; };
 		EBBB9FE4282AC84300FD610B /* SecondFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFactory.swift; sourceTree = "<group>"; };
 		EBBB9FE6282AC8D000FD610B /* ThirdFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdFactory.swift; sourceTree = "<group>"; };
 		EBBDD2AC282C785D007A2701 /* SecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			children = (
 				EBBB9FB42829B22300FD610B /* MainViewController.swift */,
 				EBBB9FCA2829B6EB00FD610B /* MainView.swift */,
-				EBBB9FE1282AC4F900FD610B /* HomeFactory.swift */,
+				EBBB9FE1282AC4F900FD610B /* MainFactory.swift */,
 				EBBB9FDF2829EC0E00FD610B /* MainViewModel.swift */,
 			);
 			path = Home;
@@ -266,7 +266,7 @@
 				EBBB9FC82829B32400FD610B /* Coordinator.swift in Sources */,
 				EBBB9FB52829B22300FD610B /* MainViewController.swift in Sources */,
 				EBBDD2B1282C79D9007A2701 /* ViewModel.swift in Sources */,
-				EBBB9FE2282AC4F900FD610B /* HomeFactory.swift in Sources */,
+				EBBB9FE2282AC4F900FD610B /* MainFactory.swift in Sources */,
 				EBBDD2AF282C7867007A2701 /* ThirdViewModel.swift in Sources */,
 				EBBB9FDA2829CE1400FD610B /* ViewTemplate.swift in Sources */,
 				EBBDD2AD282C785D007A2701 /* SecondViewModel.swift in Sources */,

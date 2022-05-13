@@ -29,7 +29,7 @@ class MainCoordinator: Coordinator {
 	}
 	
 	public func start() {
-		let vc = HomeFactory.make()
+		let vc = MainFactory.make()
 		vc.viewModel?.coordinator = self
 		navigationController.show(vc, sender: self)
 	}

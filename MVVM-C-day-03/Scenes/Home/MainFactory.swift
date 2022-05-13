@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeFactory {
+class MainFactory {
 	
 	static func make() -> MainViewController {
 		

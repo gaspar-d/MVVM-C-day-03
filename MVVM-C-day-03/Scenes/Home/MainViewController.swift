@@ -7,21 +7,19 @@
 
 import UIKit
 
-// TODO: - Can be made using protocols
-// TODO: - https://medium.com/nerd-for-tech/mvvm-coordinators-ios-architecture-tutorial-fb27eaa36470
-protocol MainViewControllerProtocol: AnyObject {
+protocol MainViewControllerDelegate: AnyObject {
 	var getLabelA: String { get }
 	func pushSecondVC()
 }
-// TODO: -
 
 final class MainViewController: UIViewController {
 	private var customView: MainView?
 	public var viewModel: MainViewModel?
-	weak var delegate: MainViewControllerProtocol?
+	weak var delegate: MainViewControllerDelegate?
 	
-	init(viewModel: MainViewModel) {
+	init(viewModel: MainViewModel, delegate: MainViewControllerDelegate) {
 		self.viewModel = viewModel
+		self.delegate = delegate
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -45,10 +43,16 @@ final class MainViewController: UIViewController {
 	}
 	
 	private func setUpViewLabel() {
+		// TODO: - viewModel  implementation works normally
 		guard let viewModel = viewModel else {
 			return
 		}
 		customView?.setViewLabel(label: viewModel.getLabelA)
+		
+//		guard let viewModel = delegate else {
+//			return
+//		}
+//		customView?.setViewLabel(label: viewModel.getLabelA)
 	}
 	
 	private func setUpButtonAction() {
@@ -56,7 +60,9 @@ final class MainViewController: UIViewController {
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
+		// TODO: - viewModel  implementation works normally
 		viewModel?.pushSecondVC()
+//		delegate?.pushSecondVC()
 	}
 }
 
