@@ -9,14 +9,14 @@ import Foundation
 
 class SecondViewModel: NSObject {
 	weak var coordinator: Coordinator?
-	private var viewModel: ViewModel
+	private var viewModel: ViewModel?
 	
 	init(viewModel: ViewModel) {
 		self.viewModel = viewModel
 	}
 	
 	public var getLabelB: String {
-		guard let label = viewModel.data?.labelB else { return ""}
+		guard let label = viewModel?.data?.labelB else { return ""}
 		return label
 	}
 	

@@ -8,7 +8,6 @@
 import UIKit
 
 final class SecondViewController: UIViewController {
-//	weak var coordinator: Coordinator?
 	private var customView: SecondView?
 	public var viewModel: SecondViewModel?
 	
@@ -46,7 +45,6 @@ final class SecondViewController: UIViewController {
 	}
 	
 	@objc private func buttonToThirdVCTapped() {
-//		coordinator?.eventOccurred(with: .sendToThirdView)
 		viewModel?.pushThirdVC()
 	}
 }

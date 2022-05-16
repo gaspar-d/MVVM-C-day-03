@@ -36,9 +36,7 @@ final class MainViewController: UIViewController {
 	}
 	
 	private func setUpViewLabel() {
-		guard let viewModel = viewModel else {
-			return
-		}
+		guard let viewModel = viewModel else { return }
 		customView?.setViewLabel(label: viewModel.getLabelA)
 	}
 	
@@ -50,5 +48,3 @@ final class MainViewController: UIViewController {
 		viewModel?.pushSecondVC()
 	}
 }
-
-
