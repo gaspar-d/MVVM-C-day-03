@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class MainViewController: UIViewController, Coordinating {
-	var coordinator: Coordinator?
+final class MainViewController: UIViewController {
 	private var customView: MainView?
-	private var viewModel: ViewModel?
+	public var viewModel: MainViewModel?
 	
-	init(viewModel: ViewModel) {
+	init(viewModel: MainViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -37,9 +36,7 @@ final class MainViewController: UIViewController, Coordinating {
 	}
 	
 	private func setUpViewLabel() {
-		guard let viewModel = viewModel else {
-			return
-		}
+		guard let viewModel = viewModel else { return }
 		customView?.setViewLabel(label: viewModel.getLabelA)
 	}
 	
@@ -48,6 +45,6 @@ final class MainViewController: UIViewController, Coordinating {
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
-		coordinator?.eventOccurred(with: .sendToSecondView)
+		viewModel?.pushSecondVC()
 	}
 }

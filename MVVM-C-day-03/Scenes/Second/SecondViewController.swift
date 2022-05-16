@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class SecondViewController: UIViewController, Coordinating {
-	weak var coordinator: Coordinator?
+final class SecondViewController: UIViewController {
 	private var customView: SecondView?
-	private var viewModel: ViewModel?
+	public var viewModel: SecondViewModel?
 	
-	init(viewModel: ViewModel) {
+	init(viewModel: SecondViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -46,6 +45,6 @@ final class SecondViewController: UIViewController, Coordinating {
 	}
 	
 	@objc private func buttonToThirdVCTapped() {
-		coordinator?.eventOccurred(with: .sendToThirdView)
+		viewModel?.pushThirdVC()
 	}
 }

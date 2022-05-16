@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class ThirdViewController: UIViewController, Coordinating {
-	weak var coordinator: Coordinator?
+final class ThirdViewController: UIViewController {
 	private var customView: ThirdView?
-	private var viewModel: ViewModel?
+	public var viewModel: ThirdViewModel?
 	
-	init(viewModel: ViewModel) {
+	init(viewModel: ThirdViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

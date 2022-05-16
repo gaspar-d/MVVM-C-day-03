@@ -18,6 +18,3 @@ protocol Coordinator: AnyObject {
 	func start()
 }
 
-protocol Coordinating: AnyObject {
-	var coordinator: Coordinator? { get set }
-}

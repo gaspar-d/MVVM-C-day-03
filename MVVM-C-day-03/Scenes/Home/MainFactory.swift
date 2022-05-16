@@ -7,14 +7,14 @@
 
 import UIKit
 
-class HomeFactory {
+class MainFactory {
 	
 	static func make() -> MainViewController {
 		
 		let model = Model(labelA: "", labelB: "", labelC: "")
 		let vm = ViewModel(model: model)
-		
-		let vc = MainViewController(viewModel: vm)
+		let mainVM = MainViewModel(viewModel: vm)
+		let vc = MainViewController(viewModel: mainVM)
 		
 		return vc
 	}
