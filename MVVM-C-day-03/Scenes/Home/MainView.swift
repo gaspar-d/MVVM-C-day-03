@@ -12,22 +12,33 @@ class MainView: UIView {
 	private lazy var viewLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = .systemFont(ofSize: 28, weight: .bold)
+		label.font = .systemFont(ofSize: 38, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
 		return label
+	}()
+	
+	private lazy var nameInput: UITextField = {
+		let text = UITextField()
+		text.translatesAutoresizingMaskIntoConstraints = false
+		text.backgroundColor = .white
+		text.layer.cornerRadius = 5
+		text.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+		text.leftViewMode = .always
+		text.placeholder = "Please insert your full name"
+		return text
 	}()
 	
 	private lazy var buttonToSecondVC: UIButton = {
 		let configuration = UIButton.Configuration.filled()
 		let button = UIButton(configuration: configuration)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Press me", for: .normal)
+		button.setTitle("Confirm", for: .normal)
 		return button
 	}()
 	
 	private lazy var stack: UIStackView = {
-		let stack = UIStackView(arrangedSubviews: [viewLabel, buttonToSecondVC])
+		let stack = UIStackView(arrangedSubviews: [viewLabel, nameInput, buttonToSecondVC])
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		stack.axis = .vertical
 		stack.distribution = .equalCentering
@@ -46,7 +57,13 @@ class MainView: UIView {
 	}
 	
 	func setViewLabel(label: String) {
-		viewLabel.text = "Scene \(label)"
+		viewLabel.text = label
+	}
+
+	func getInputedName() -> String {
+		guard let name = nameInput.text else { return "Falhou" }
+
+		return name
 	}
 	
 	func didButtonTapped(_ target: Any?, action: Selector) {
@@ -63,9 +80,18 @@ extension MainView: ViewTemplate {
 	}
 	
 	func setUpConstraints() {
+		let defaultHeight: CGFloat = 44
+		let paddings: CGFloat = 20
+		
 		NSLayoutConstraint.activate([
+			
+			nameInput.heightAnchor.constraint(equalToConstant: defaultHeight),
+			buttonToSecondVC.heightAnchor.constraint(equalToConstant: defaultHeight),
+			
 			stack.centerXAnchor.constraint(equalTo: centerXAnchor),
-			stack.centerYAnchor.constraint(equalTo: centerYAnchor)
+			stack.centerYAnchor.constraint(equalTo: centerYAnchor),
+			stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: paddings),
+			stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -paddings)
 		])
 	}
 }

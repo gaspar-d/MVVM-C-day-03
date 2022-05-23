@@ -7,9 +7,9 @@
 
 import Foundation
 
-class ViewModel: NSObject {
+class Service: NSObject {
 	private var model: Model
-	private(set) var data: Model?
+	var data: Model?
 	
 	init(model: Model) {
 		self.model = model
@@ -19,6 +19,7 @@ class ViewModel: NSObject {
 	}
 	
 	private func getData() {
-		data = Model(labelA: "Y", labelB: "X", labelC: "Z")
+		data = Model(labelA: "Login", labelB: "Second View", labelC: "Third View")
 	}
 }
+

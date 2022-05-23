@@ -11,4 +11,6 @@ struct Model {
 	var labelA: String
 	var labelB: String
 	var labelC: String
+	var name: String?
 }
+

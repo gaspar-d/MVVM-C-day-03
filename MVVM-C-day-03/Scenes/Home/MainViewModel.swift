@@ -9,20 +9,24 @@ import Foundation
 
 class MainViewModel: NSObject {
 	public var coordinator: Coordinator?
-	private var viewModel: ViewModel?
+	private var service: Service?
 	
-	init(viewModel: ViewModel) {
-		self.viewModel = viewModel
+	init(service: Service) {
+		self.service = service
+		super.init()
 	}
 	
 	public var getLabelA: String {
-		guard let label = viewModel?.data?.labelA else { return ""}
+		guard let label = service?.data?.labelA else { return ""}
 		return label
+	}
+	
+	public func setName(name: String) {
+		service?.data?.name = name
 	}
 
 	public func pushSecondVC() {
 		coordinator?.eventOccurred(with: .sendToSecondView)
 	}
 }
-
 

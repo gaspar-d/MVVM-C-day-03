@@ -22,7 +22,7 @@ final class SecondView: UIView {
 		let configuration = UIButton.Configuration.filled()
 		let button = UIButton(configuration: configuration)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Press me", for: .normal)
+		button.setTitle("Confirm", for: .normal)
 		return button
 	}()
 	
@@ -46,7 +46,7 @@ final class SecondView: UIView {
 	}
 	
 	func setViewLabel(label: String) {
-		viewLabel.text = "Scene \(label)"
+		viewLabel.text = "Welcome \(label)"
 	}
 	
 	func didButtonTapped(_ target: Any?, action: Selector) {
