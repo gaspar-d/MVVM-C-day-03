@@ -7,15 +7,34 @@
 
 import UIKit
 
-class ThirdView: UIView {
+final class ThirdView: UIView {
 	
-	private lazy var viewName: UILabel = {
+	private lazy var nameLabel: UILabel = {
 		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
 		return label
+	}()
+	
+	private lazy var dateLabel: UILabel = {
+		let label = UILabel()
+		label.font = .systemFont(ofSize: 22, weight: .bold)
+		label.textColor = .white
+		label.textAlignment = .center
+		label.text = "Your age: "
+		return label
+	}()
+	
+	
+	private lazy var stack: UIStackView = {
+		let stack = UIStackView(arrangedSubviews: [nameLabel, dateLabel])
+		stack.translatesAutoresizingMaskIntoConstraints = false
+		stack.alignment = .leading
+		stack.axis = .vertical
+		stack.distribution = .equalCentering
+		stack.spacing = 10
+		return stack
 	}()
 	
 	override init(frame: CGRect) {
@@ -29,20 +48,19 @@ class ThirdView: UIView {
 	}
 	
 	public func setViewLabel(label: String) {
-		viewName.text = "Scene \(label)"
+		nameLabel.text = "Your name:  \(label)"
 	}
 }
 
 extension ThirdView: ViewTemplate {
 	func setUpComponents() {
-		addSubview(viewName)
-
+		addSubview(stack)
 	}
 	
 	func setUpConstraints() {
 		NSLayoutConstraint.activate([
-			viewName.centerXAnchor.constraint(equalTo: centerXAnchor),
-			viewName.centerYAnchor.constraint(equalTo: centerYAnchor)
+			stack.centerXAnchor.constraint(equalTo: centerXAnchor),
+			stack.centerYAnchor.constraint(equalTo: centerYAnchor)
 		])
 	}
 }

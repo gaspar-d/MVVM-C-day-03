@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NameValidator {
+final class NameValidator {
 	
 	private let usernamePattern = #"^[a-zA-Z-]+ ?.* [a-zA-Z-]+$"#
 	
