@@ -11,10 +11,10 @@ class MainFactory {
 	
 	static func make() -> MainViewController {
 		
-		let model = Model(labelA: "", labelB: "", labelC: "")
-		let vm = ViewModel(model: model)
-		let mainVM = MainViewModel(viewModel: vm)
-		let vc = MainViewController(viewModel: mainVM)
+		let service = Service()
+		let mainVM = MainViewModel(service: service)
+		let validator = NameValidator()
+		let vc = MainViewController(viewModel: mainVM, validator: validator)
 		
 		return vc
 	}

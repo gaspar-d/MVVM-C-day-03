@@ -10,9 +10,11 @@ import UIKit
 final class MainViewController: UIViewController {
 	private var customView: MainView?
 	public var viewModel: MainViewModel?
+	public var validator: NameValidator?
 	
-	init(viewModel: MainViewModel) {
+	init(viewModel: MainViewModel, validator: NameValidator) {
 		self.viewModel = viewModel
+		self.validator = validator
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -25,6 +27,7 @@ final class MainViewController: UIViewController {
 
 		buildView()
 		setUpViewLabel()
+		setupName()
 		setUpButtonAction()
 	}
 	
@@ -36,8 +39,13 @@ final class MainViewController: UIViewController {
 	}
 	
 	private func setUpViewLabel() {
-		guard let viewModel = viewModel else { return }
-		customView?.setViewLabel(label: viewModel.getLabelA)
+		guard let label = viewModel?.getLabelA else { return }
+		customView?.setViewLabel(label: label)
+	}
+	
+	private func setupName() {
+		guard let name = customView?.getInputedName() else { return }
+		viewModel?.setName(name: name)
 	}
 	
 	private func setUpButtonAction() {
@@ -45,6 +53,20 @@ final class MainViewController: UIViewController {
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
-		viewModel?.pushSecondVC()
+		guard let name = customView?.getInputedName() else { return }
+		guard let safeName = validator?.isNameValidated(name: name) else { return }
+		
+		safeName ? viewModel?.pushSecondVC() : invalidInputAlert()
+	}
+	
+	private func invalidInputAlert() {
+		let alert = UIAlertController(title: "Please insert a valid user name!",
+									  message: "Insert at least first and last name",
+									  preferredStyle: .alert)
+		
+		let okAction = UIAlertAction(title: "Ok", style: .cancel)
+		alert.addAction(okAction)
+		present(alert, animated: true)
 	}
 }
+

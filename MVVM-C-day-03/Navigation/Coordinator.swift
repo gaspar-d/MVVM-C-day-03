@@ -17,4 +17,3 @@ protocol Coordinator: AnyObject {
 	func eventOccurred(with event: Event)
 	func start()
 }
-

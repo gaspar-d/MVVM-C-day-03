@@ -11,9 +11,8 @@ class SecondFactory {
 	
 	static func make() -> SecondViewController {
 		
-		let model = Model(labelA: "", labelB: "", labelC: "")
-		let vm = ViewModel(model: model)
-		let secondVM = SecondViewModel(viewModel: vm)
+		let service = Service()
+		let secondVM = SecondViewModel(service: service)
 		let vc = SecondViewController(viewModel: secondVM)
 		
 		return vc
