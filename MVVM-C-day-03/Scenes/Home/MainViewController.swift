@@ -27,6 +27,7 @@ final class MainViewController: UIViewController {
 
 		buildView()
 		setUpViewLabel()
+		setupName()
 		setUpButtonAction()
 	}
 	
@@ -42,13 +43,17 @@ final class MainViewController: UIViewController {
 		customView?.setViewLabel(label: label)
 	}
 	
+	private func setupName() {
+		guard let name = customView?.getInputedName() else { return }
+		viewModel?.setName(name: name)
+	}
+	
 	private func setUpButtonAction() {
 		customView?.didButtonTapped(self, action: #selector(buttonToSecondVCTapped))
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
 		guard let name = customView?.getInputedName() else { return }
-		viewModel?.setName(name: name)
 		guard let safeName = validator?.isNameValidated(name: name) else { return }
 		
 		safeName ? viewModel?.pushSecondVC() : invalidInputAlert()

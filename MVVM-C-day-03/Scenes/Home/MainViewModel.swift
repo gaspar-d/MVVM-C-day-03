@@ -7,26 +7,31 @@
 
 import Foundation
 
-class MainViewModel: NSObject {
+final class MainViewModel: NSObject {
 	public var coordinator: Coordinator?
 	private var service: Service?
+	var name: Observable<String?> = Observable(nil)
 	
 	init(service: Service) {
 		self.service = service
 		super.init()
+		
 	}
 	
-	public var getLabelA: String {
-		guard let label = service?.data?.labelA else { return ""}
-		return label
+	public var getLabelA: String? {
+		return service?.getData()?.labelA
 	}
 	
 	public func setName(name: String) {
-		service?.data?.name = name
+		service?.setName(name: name)
 	}
-
+	
 	public func pushSecondVC() {
 		coordinator?.eventOccurred(with: .sendToSecondView)
+	}
+	
+	var savedName: String? {
+		return service?.getData()?.name
 	}
 }
 

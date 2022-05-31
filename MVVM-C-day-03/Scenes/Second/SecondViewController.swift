@@ -24,6 +24,7 @@ final class SecondViewController: UIViewController {
         super.viewDidLoad()
 
 		buildView()
+		setBinders()
 		setUpViewLabel()
 		setUpButtonAction()
     }
@@ -31,13 +32,21 @@ final class SecondViewController: UIViewController {
 	private func buildView() {
 		customView = SecondView()
 		view = customView
-		view.backgroundColor = .purple
+		view.backgroundColor = .systemGreen
 		title = "Second"
 	}
 	
+	private func setBinders() {
+		viewModel?.name.bind { [weak self] name in
+			
+			self?.customView?.setViewLabel(label: name ?? "")
+		}
+	}
+	
 	private func setUpViewLabel() {
-		guard let label = viewModel?.getLabelB else { return }
-		customView?.setViewLabel(label: label)
+		guard let name = viewModel?.getName else { return }
+		
+		customView?.setViewLabel(label: name)
 	}
 	
 	private func setUpButtonAction() {
@@ -45,6 +54,18 @@ final class SecondViewController: UIViewController {
 	}
 	
 	@objc private func buttonToThirdVCTapped() {
-		viewModel?.pushThirdVC()
+		guard let pickerAge = customView?.getPickerDate else { return }
+		
+		pickerAge < Date.now ? viewModel?.pushThirdVC() : ageIsInvalidAlert()
+	}
+	
+	private func ageIsInvalidAlert() {
+		let alert = UIAlertController(title: "Please insert a valid age!",
+									  message: "Age cannot be a future date",
+									  preferredStyle: .alert)
+		
+		let okAction = UIAlertAction(title: "Ok", style: .cancel)
+		alert.addAction(okAction)
+		present(alert, animated: true)
 	}
 }

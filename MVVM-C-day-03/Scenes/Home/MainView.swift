@@ -61,8 +61,7 @@ class MainView: UIView {
 	}
 
 	func getInputedName() -> String {
-		guard let name = nameInput.text else { return "Falhou" }
-
+		guard let name = nameInput.text else { return "Failed" }
 		return name
 	}
 	

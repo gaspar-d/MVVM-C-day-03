@@ -8,18 +8,24 @@
 import Foundation
 
 class Service: NSObject {
-	private var model: Model
-	var data: Model?
+	private var data: Model?
 	
-	init(model: Model) {
-		self.model = model
+	override init() {
 		super.init()
 		
-		getData()
+		setData()
 	}
 	
-	private func getData() {
+	private func setData() {
 		data = Model(labelA: "Login", labelB: "Second View", labelC: "Third View")
+	}
+	
+	public func getData() -> Model? {
+		return data
+	}
+	
+	public func setName(name: String) {
+		data?.name = name
 	}
 }
 
