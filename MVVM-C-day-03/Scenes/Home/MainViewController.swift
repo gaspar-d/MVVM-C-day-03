@@ -10,6 +10,7 @@ import UIKit
 final class MainViewController: UIViewController {
 	private var customView: MainView?
 	public var viewModel: MainViewModel?
+	// FIXME: - Mandar para viewModel
 	public var validator: NameValidator?
 	
 	init(viewModel: MainViewModel, validator: NameValidator) {
@@ -24,10 +25,9 @@ final class MainViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		buildView()
 		setUpViewLabel()
-		setupName()
 		setUpButtonAction()
 	}
 	
@@ -39,8 +39,8 @@ final class MainViewController: UIViewController {
 	}
 	
 	private func setUpViewLabel() {
-		guard let label = viewModel?.getLabelA else { return }
-		customView?.setViewLabel(label: label)
+		guard let name = viewModel?.getLabelA else { return }
+		customView?.setNameLabel(name: name)
 	}
 	
 	private func setupName() {
@@ -53,10 +53,15 @@ final class MainViewController: UIViewController {
 	}
 	
 	@objc private func buttonToSecondVCTapped() {
-		guard let name = customView?.getInputedName() else { return }
-		guard let safeName = validator?.isNameValidated(name: name) else { return }
+		guard let name = customView?.getInputedName(),
+			  let isNameSafe = validator?.isNameValidated(name: name),
+			  isNameSafe
+		else {
+			invalidInputAlert()
+			return
+		}
 		
-		safeName ? viewModel?.pushSecondVC() : invalidInputAlert()
+		viewModel?.pushSecondVC(name: name)
 	}
 	
 	private func invalidInputAlert() {

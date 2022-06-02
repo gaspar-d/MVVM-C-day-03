@@ -24,7 +24,6 @@ final class SecondViewController: UIViewController {
         super.viewDidLoad()
 
 		buildView()
-		setBinders()
 		setUpViewLabel()
 		setUpButtonAction()
     }
@@ -36,17 +35,10 @@ final class SecondViewController: UIViewController {
 		title = "Second"
 	}
 	
-	private func setBinders() {
-		viewModel?.name.bind { [weak self] name in
-			
-			self?.customView?.setViewLabel(label: name ?? "")
-		}
-	}
-	
 	private func setUpViewLabel() {
 		guard let name = viewModel?.getName else { return }
 		
-		customView?.setViewLabel(label: name)
+		customView?.setNameLabel(label: name)
 	}
 	
 	private func setUpButtonAction() {
@@ -54,9 +46,14 @@ final class SecondViewController: UIViewController {
 	}
 	
 	@objc private func buttonToThirdVCTapped() {
-		guard let pickerAge = customView?.getPickerDate else { return }
-		
-		pickerAge < Date.now ? viewModel?.pushThirdVC() : ageIsInvalidAlert()
+		guard let name = viewModel?.getName,
+			  let pickerAge = customView?.getPickerDate,
+			  pickerAge < Date.now
+		else {
+			ageIsInvalidAlert()
+			return
+		}
+		viewModel?.pushThirdVC(name: name)
 	}
 	
 	private func ageIsInvalidAlert() {

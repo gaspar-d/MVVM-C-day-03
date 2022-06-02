@@ -16,13 +16,13 @@ class MainCoordinator: Coordinator {
 	
 	public func eventOccurred(with event: Event) {
 		switch event {
-		case .sendToSecondView:
-			let vc = SecondFactory.make()
+		case let .sendToSecondView(name):
+			let vc = SecondFactory.make(name: name)
 			vc.viewModel?.coordinator = self
 			navigationController.pushViewController(vc, animated: true)
 			
-		case .sendToThirdView:
-			let vc = ThirdFactory.make()
+		case let .sendToThirdView(name):
+			let vc = ThirdFactory.make(name: name)
 			vc.viewModel?.coordinator = self
 			navigationController.pushViewController(vc, animated: true)
 		}

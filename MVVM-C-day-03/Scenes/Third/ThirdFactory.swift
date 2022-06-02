@@ -9,10 +9,11 @@ import Foundation
 
 class ThirdFactory {
 	
-	static func make() -> ThirdViewController {
+	static func make(name: String) -> ThirdViewController {
 		
 		let service = Service()
 		let thirdVM = ThirdViewModel(service: service)
+		thirdVM.name = name
 		let vc = ThirdViewController(viewModel: thirdVM)
 		
 		return vc

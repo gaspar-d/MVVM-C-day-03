@@ -9,10 +9,11 @@ import Foundation
 
 class SecondFactory {
 	
-	static func make() -> SecondViewController {
+	static func make(name: String) -> SecondViewController {
 		
 		let service = Service()
 		let secondVM = SecondViewModel(service: service)
+		secondVM.name = name
 		let vc = SecondViewController(viewModel: secondVM)
 		
 		return vc

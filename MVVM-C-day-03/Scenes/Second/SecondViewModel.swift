@@ -10,11 +10,10 @@ import Foundation
 final class SecondViewModel: NSObject {
 	weak var coordinator: Coordinator?
 	private var service: Service?
-	var name: Observable<String?> = Observable(nil)
+	public var name: String?
 	
 	init(service: Service) {
 		self.service = service
-		self.name = Observable("Testing")
 	}
 	
 	public var getLabelB: String {
@@ -23,12 +22,10 @@ final class SecondViewModel: NSObject {
 	}
 	
 	public var getName: String? {
-		let data = service?.getData()?.name
-		name.value = data
-		return name.value
+		return name
 	}
 	
-	public func pushThirdVC() {
-		coordinator?.eventOccurred(with: .sendToThirdView)
+	public func pushThirdVC(name: String) {
+		coordinator?.eventOccurred(with: .sendToThirdView(name))
 	}
 }

@@ -20,22 +20,22 @@ final class ThirdViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		buildView()
-		setUpViewLabel()
-    }
+		setUpNameLabel()
+	}
 	
-	private func setUpViewLabel() {
-		guard let label = viewModel?.getLabelC else { return }
-		customView?.setViewLabel(label: label)
+	private func setUpNameLabel() {
+		guard let name = viewModel?.getName else { return }
+		customView?.setNameLabel(name: name)
 	}
 	
 	private func buildView() {
 		customView = ThirdView()
 		view = customView
-		view.backgroundColor = .systemGreen
+		view.backgroundColor = .purple
 		title = "Third"
 	}
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class MainView: UIView {
 
-	private lazy var viewLabel: UILabel = {
+	private lazy var nameLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = .systemFont(ofSize: 38, weight: .bold)
@@ -38,7 +38,7 @@ class MainView: UIView {
 	}()
 	
 	private lazy var stack: UIStackView = {
-		let stack = UIStackView(arrangedSubviews: [viewLabel, nameInput, buttonToSecondVC])
+		let stack = UIStackView(arrangedSubviews: [nameLabel, nameInput, buttonToSecondVC])
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		stack.axis = .vertical
 		stack.distribution = .equalCentering
@@ -56,8 +56,8 @@ class MainView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setViewLabel(label: String) {
-		viewLabel.text = label
+	func setNameLabel(name: String) {
+		nameLabel.text = name
 	}
 
 	func getInputedName() -> String {

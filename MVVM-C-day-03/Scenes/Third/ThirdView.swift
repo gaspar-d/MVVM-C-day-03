@@ -19,7 +19,7 @@ final class ThirdView: UIView {
 	
 	private lazy var dateLabel: UILabel = {
 		let label = UILabel()
-		label.font = .systemFont(ofSize: 22, weight: .bold)
+		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
 		label.text = "Your age: "
@@ -47,8 +47,12 @@ final class ThirdView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func setViewLabel(label: String) {
-		nameLabel.text = "Your name:  \(label)"
+	public func setNameLabel(name: String) {
+		nameLabel.text = "Your name:  \(name)"
+	}
+	
+	public func setAgeLabel(age: String) {
+		dateLabel.text = "Your age: \(age)"
 	}
 }
 
@@ -58,9 +62,13 @@ extension ThirdView: ViewTemplate {
 	}
 	
 	func setUpConstraints() {
+		let paddings: CGFloat = 20
+		
 		NSLayoutConstraint.activate([
 			stack.centerXAnchor.constraint(equalTo: centerXAnchor),
-			stack.centerYAnchor.constraint(equalTo: centerYAnchor)
+			stack.centerYAnchor.constraint(equalTo: centerYAnchor),
+			stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: paddings),
+			stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -paddings)
 		])
 	}
 }

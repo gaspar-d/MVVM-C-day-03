@@ -10,12 +10,10 @@ import Foundation
 final class MainViewModel: NSObject {
 	public var coordinator: Coordinator?
 	private var service: Service?
-	var name: Observable<String?> = Observable(nil)
 	
 	init(service: Service) {
 		self.service = service
 		super.init()
-		
 	}
 	
 	public var getLabelA: String? {
@@ -26,8 +24,8 @@ final class MainViewModel: NSObject {
 		service?.setName(name: name)
 	}
 	
-	public func pushSecondVC() {
-		coordinator?.eventOccurred(with: .sendToSecondView)
+	public func pushSecondVC(name: String) {
+		coordinator?.eventOccurred(with: .sendToSecondView(name))
 	}
 	
 	var savedName: String? {

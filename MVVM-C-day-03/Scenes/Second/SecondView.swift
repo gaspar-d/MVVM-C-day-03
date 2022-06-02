@@ -9,11 +9,14 @@ import UIKit
 
 final class SecondView: UIView {
 	
-	private lazy var viewLabel: UILabel = {
+	private lazy var nameLabel: UILabel = {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
 		label.textAlignment = .center
+		label.numberOfLines = 0
+		label.lineBreakMode = .byWordWrapping
+		label.sizeToFit()
 		return label
 	}()
 	
@@ -42,7 +45,7 @@ final class SecondView: UIView {
 	}()
 	
 	private lazy var stack: UIStackView = {
-		let stack = UIStackView(arrangedSubviews: [viewLabel, dateLabel, datePicker, buttonToThirdVC])
+		let stack = UIStackView(arrangedSubviews: [nameLabel, dateLabel, datePicker, buttonToThirdVC])
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		stack.axis = .vertical
 		stack.distribution = .equalCentering
@@ -60,17 +63,13 @@ final class SecondView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func setViewLabel(label: String) {
-		viewLabel.text = "Welcome \(label)"
+	public func setNameLabel(label: String) {
+		nameLabel.text = "Welcome \(label)"
 	}
 	
 	public var getPickerDate: Date {
 		datePicker.date
 	}
-	
-//	public func getPickerDate() -> Date {
-//		return datePicker.date
-//	}
 	
 	public func didButtonTapped(_ target: Any?, action: Selector) {
 		buttonToThirdVC.addTarget(target, action: action, for: .touchUpInside)
@@ -83,11 +82,17 @@ extension SecondView: ViewTemplate {
 	}
 	
 	func setUpConstraints() {
+		let defaultHeight: CGFloat = 44
+		let paddings: CGFloat = 20
+		
 		NSLayoutConstraint.activate([
 			datePicker.centerXAnchor.constraint(equalTo: stack.centerXAnchor, constant: 0),
+			buttonToThirdVC.heightAnchor.constraint(equalToConstant: defaultHeight),
 			
 			stack.centerXAnchor.constraint(equalTo: centerXAnchor),
-			stack.centerYAnchor.constraint(equalTo: centerYAnchor)
+			stack.centerYAnchor.constraint(equalTo: centerYAnchor),
+			stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: paddings),
+			stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -paddings)
 		])
 	}
 }
