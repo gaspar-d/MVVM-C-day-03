@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Service: NSObject {
+final class Service: NSObject {
 	private var data: Model?
 	
 	override init() {
@@ -17,15 +17,11 @@ class Service: NSObject {
 	}
 	
 	private func setData() {
-		data = Model(labelA: "Login", labelB: "Second View", labelC: "Third View")
+		data = Model(labelA: "Login")
 	}
 	
 	public func getData() -> Model? {
 		return data
-	}
-	
-	public func setName(name: String) {
-		data?.name = name
 	}
 }
 

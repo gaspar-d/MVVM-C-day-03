@@ -7,14 +7,13 @@
 
 import UIKit
 
-class MainFactory {
+final class MainFactory {
 	
 	static func make() -> MainViewController {
 		
 		let service = Service()
 		let mainVM = MainViewModel(service: service)
-		let validator = NameValidator()
-		let vc = MainViewController(viewModel: mainVM, validator: validator)
+		let vc = MainViewController(viewModel: mainVM)
 		
 		return vc
 	}

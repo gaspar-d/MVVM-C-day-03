@@ -9,6 +9,8 @@ import Foundation
 
 final class NameValidator {
 	
+	static var shared = NameValidator()
+	
 	private let usernamePattern = #"^[a-zA-Z-]+ ?.* [a-zA-Z-]+$"#
 	
 	public func isNameValidated(name: String) -> Bool {
@@ -20,4 +22,6 @@ final class NameValidator {
 		let validUsername = (result != nil)
 		return validUsername
 	}
+	
+	private init() {}
 }

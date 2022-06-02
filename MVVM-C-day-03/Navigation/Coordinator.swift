@@ -9,7 +9,7 @@ import UIKit
 
 enum Event {
 	case sendToSecondView(String)
-	case sendToThirdView(String)
+	case sendToThirdView(String, String)
 }
 
 protocol Coordinator: AnyObject {

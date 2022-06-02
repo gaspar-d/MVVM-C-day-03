@@ -7,13 +7,13 @@
 
 import Foundation
 
-class ThirdFactory {
+final class ThirdFactory {
 	
-	static func make(name: String) -> ThirdViewController {
+	static func make(name: String, age: String) -> ThirdViewController {
 		
-		let service = Service()
-		let thirdVM = ThirdViewModel(service: service)
+		let thirdVM = ThirdViewModel()
 		thirdVM.name = name
+		thirdVM.age = age
 		let vc = ThirdViewController(viewModel: thirdVM)
 		
 		return vc

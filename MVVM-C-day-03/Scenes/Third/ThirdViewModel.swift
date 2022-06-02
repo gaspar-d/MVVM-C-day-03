@@ -9,19 +9,14 @@ import Foundation
 
 final class ThirdViewModel: NSObject {
 	weak var coordinator: Coordinator?
-	private var service: Service?
 	public var name: String?
-	
-	init(service: Service) {
-		self.service = service
-	}
-	
-	public var getLabelC: String {
-		guard let label = service?.getData()?.labelC else { return ""}
-		return label
-	}
+	public var age: String?
 	
 	public var getName: String? {
 		name
+	}
+	
+	public var getAge: String? {
+		age
 	}
 }

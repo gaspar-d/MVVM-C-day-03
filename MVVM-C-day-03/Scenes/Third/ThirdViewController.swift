@@ -9,7 +9,7 @@ import UIKit
 
 final class ThirdViewController: UIViewController {
 	private var customView: ThirdView?
-	public var viewModel: ThirdViewModel?
+	public var viewModel: ThirdViewModel
 	
 	init(viewModel: ThirdViewModel) {
 		self.viewModel = viewModel
@@ -24,12 +24,8 @@ final class ThirdViewController: UIViewController {
 		super.viewDidLoad()
 		
 		buildView()
-		setUpNameLabel()
-	}
-	
-	private func setUpNameLabel() {
-		guard let name = viewModel?.getName else { return }
-		customView?.setNameLabel(name: name)
+		setupNameLabel()
+		setupAgeLabel()
 	}
 	
 	private func buildView() {
@@ -37,5 +33,15 @@ final class ThirdViewController: UIViewController {
 		view = customView
 		view.backgroundColor = .purple
 		title = "Third"
+	}
+	
+	private func setupNameLabel() {
+		guard let name = viewModel.getName else { return }
+		customView?.setNameLabel(name: name)
+	}
+	
+	private func setupAgeLabel() {
+		guard let age = viewModel.getAge else { return }
+		customView?.setAgeLabel(age: age)
 	}
 }

@@ -67,7 +67,7 @@ final class SecondView: UIView {
 		nameLabel.text = "Welcome \(label)"
 	}
 	
-	public var getPickerDate: Date {
+	public var getDate: Date {
 		datePicker.date
 	}
 	
@@ -77,11 +77,11 @@ final class SecondView: UIView {
 }
 
 extension SecondView: ViewTemplate {
-	func setUpComponents() {
+	public func setUpComponents() {
 		addSubview(stack)
 	}
 	
-	func setUpConstraints() {
+	public func setUpConstraints() {
 		let defaultHeight: CGFloat = 44
 		let paddings: CGFloat = 20
 		

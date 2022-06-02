@@ -10,9 +10,11 @@ import Foundation
 final class MainViewModel: NSObject {
 	public var coordinator: Coordinator?
 	private var service: Service?
+	private var nameValidator: NameValidator
 	
-	init(service: Service) {
+	init(service: Service, nameValidator: NameValidator = NameValidator.shared) {
 		self.service = service
+		self.nameValidator = nameValidator
 		super.init()
 	}
 	
@@ -20,16 +22,12 @@ final class MainViewModel: NSObject {
 		return service?.getData()?.labelA
 	}
 	
-	public func setName(name: String) {
-		service?.setName(name: name)
-	}
-	
 	public func pushSecondVC(name: String) {
 		coordinator?.eventOccurred(with: .sendToSecondView(name))
 	}
 	
-	var savedName: String? {
-		return service?.getData()?.name
+	public func validateName(_ name: String) -> Bool {
+		nameValidator.isNameValidated(name: name)
 	}
 }
 

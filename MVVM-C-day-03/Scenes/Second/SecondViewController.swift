@@ -9,7 +9,7 @@ import UIKit
 
 final class SecondViewController: UIViewController {
 	private var customView: SecondView?
-	public var viewModel: SecondViewModel?
+	public var viewModel: SecondViewModel
 	
 	init(viewModel: SecondViewModel) {
 		self.viewModel = viewModel
@@ -36,7 +36,7 @@ final class SecondViewController: UIViewController {
 	}
 	
 	private func setUpViewLabel() {
-		guard let name = viewModel?.getName else { return }
+		guard let name = viewModel.getName else { return }
 		
 		customView?.setNameLabel(label: name)
 	}
@@ -46,14 +46,15 @@ final class SecondViewController: UIViewController {
 	}
 	
 	@objc private func buttonToThirdVCTapped() {
-		guard let name = viewModel?.getName,
-			  let pickerAge = customView?.getPickerDate,
-			  pickerAge < Date.now
+		guard let name = viewModel.getName,
+			  let date = customView?.getDate,
+				viewModel.isDateValid(date)
 		else {
 			ageIsInvalidAlert()
 			return
 		}
-		viewModel?.pushThirdVC(name: name)
+		
+		viewModel.pushThirdVC(name: name, date: date)
 	}
 	
 	private func ageIsInvalidAlert() {
@@ -63,6 +64,7 @@ final class SecondViewController: UIViewController {
 		
 		let okAction = UIAlertAction(title: "Ok", style: .cancel)
 		alert.addAction(okAction)
+		
 		present(alert, animated: true)
 	}
 }

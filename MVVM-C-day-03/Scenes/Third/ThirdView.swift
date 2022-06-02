@@ -13,7 +13,10 @@ final class ThirdView: UIView {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
-		label.textAlignment = .center
+		label.textAlignment = .left
+		label.text = "Your name: "
+		label.numberOfLines = 0
+		label.lineBreakMode = .byWordWrapping
 		return label
 	}()
 	
@@ -21,7 +24,7 @@ final class ThirdView: UIView {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 28, weight: .bold)
 		label.textColor = .white
-		label.textAlignment = .center
+		label.textAlignment = .left
 		label.text = "Your age: "
 		return label
 	}()
@@ -57,11 +60,11 @@ final class ThirdView: UIView {
 }
 
 extension ThirdView: ViewTemplate {
-	func setUpComponents() {
+	public func setUpComponents() {
 		addSubview(stack)
 	}
 	
-	func setUpConstraints() {
+	public func setUpConstraints() {
 		let paddings: CGFloat = 20
 		
 		NSLayoutConstraint.activate([

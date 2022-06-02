@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
+final class MainCoordinator: Coordinator {
 	var navigationController: UINavigationController
 	
 	init(navigationController: UINavigationController) {
@@ -18,19 +18,19 @@ class MainCoordinator: Coordinator {
 		switch event {
 		case let .sendToSecondView(name):
 			let vc = SecondFactory.make(name: name)
-			vc.viewModel?.coordinator = self
+			vc.viewModel.coordinator = self
 			navigationController.pushViewController(vc, animated: true)
 			
-		case let .sendToThirdView(name):
-			let vc = ThirdFactory.make(name: name)
-			vc.viewModel?.coordinator = self
+		case let .sendToThirdView(name, age):
+			let vc = ThirdFactory.make(name: name, age: age)
+			vc.viewModel.coordinator = self
 			navigationController.pushViewController(vc, animated: true)
 		}
 	}
 	
 	public func start() {
 		let vc = MainFactory.make()
-		vc.viewModel?.coordinator = self
+		vc.viewModel.coordinator = self
 		navigationController.show(vc, sender: self)
 	}
 }

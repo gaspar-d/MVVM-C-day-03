@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainView: UIView {
+final class MainView: UIView {
 
 	private lazy var nameLabel: UILabel = {
 		let label = UILabel()
@@ -56,29 +56,26 @@ class MainView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setNameLabel(name: String) {
+	public func setNameLabel(name: String) {
 		nameLabel.text = name
 	}
 
-	func getInputedName() -> String {
+	public func getInputedName() -> String {
 		guard let name = nameInput.text else { return "Failed" }
 		return name
 	}
 	
-	func didButtonTapped(_ target: Any?, action: Selector) {
+	public func didButtonTapped(_ target: Any?, action: Selector) {
 		buttonToSecondVC.addTarget(target, action: action, for: .touchUpInside)
-		
-		// FIXME: - Remember to ask this in the mentoring !!!
-		print("Why it's being called on load?")
 	}
 }
 
 extension MainView: ViewTemplate {
-	func setUpComponents() {
+	public func setUpComponents() {
 		addSubview(stack)
 	}
 	
-	func setUpConstraints() {
+	public func setUpConstraints() {
 		let defaultHeight: CGFloat = 44
 		let paddings: CGFloat = 20
 		

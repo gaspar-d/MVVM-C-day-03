@@ -9,23 +9,31 @@ import Foundation
 
 final class SecondViewModel: NSObject {
 	weak var coordinator: Coordinator?
-	private var service: Service?
+	private var dateValidator: DateValidator?
 	public var name: String?
 	
-	init(service: Service) {
-		self.service = service
-	}
-	
-	public var getLabelB: String {
-		guard let label = service?.getData()?.labelB else { return "" }
-		return label
+	init(dateValidator:
+		 DateValidator = DateValidator.shared) {
+		self.dateValidator = dateValidator
 	}
 	
 	public var getName: String? {
 		return name
 	}
 	
-	public func pushThirdVC(name: String) {
-		coordinator?.eventOccurred(with: .sendToThirdView(name))
+	public func pushThirdVC(name: String, date: Date) {
+		let year = dateValidation(date: date)
+		
+		coordinator?.eventOccurred(with: .sendToThirdView(name, String(year)))
+	}
+	
+	private func dateValidation(date: Date) -> Int {
+		guard let year = dateValidator?.formatDateToAge(date: date) else { return 0 }
+		
+		return year
+	}
+	
+	public func isDateValid(_ date: Date) -> Bool {
+		date < Date.now
 	}
 }
