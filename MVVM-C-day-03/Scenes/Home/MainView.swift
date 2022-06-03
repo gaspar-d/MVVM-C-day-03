@@ -48,7 +48,6 @@ final class MainView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
 		setUp()
 	}
 	
@@ -80,7 +79,6 @@ extension MainView: ViewTemplate {
 		let paddings: CGFloat = 20
 		
 		NSLayoutConstraint.activate([
-			
 			nameInput.heightAnchor.constraint(equalToConstant: defaultHeight),
 			buttonToSecondVC.heightAnchor.constraint(equalToConstant: defaultHeight),
 			

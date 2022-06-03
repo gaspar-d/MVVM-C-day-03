@@ -10,7 +10,6 @@ import Foundation
 final class ThirdFactory {
 	
 	static func make(name: String, age: String) -> ThirdViewController {
-		
 		let thirdVM = ThirdViewModel()
 		thirdVM.name = name
 		thirdVM.age = age

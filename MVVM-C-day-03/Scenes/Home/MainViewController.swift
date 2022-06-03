@@ -22,7 +22,6 @@ final class MainViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		buildView()
 		setUpViewLabel()
 		setUpButtonAction()
@@ -62,6 +61,7 @@ final class MainViewController: UIViewController {
 		
 		let okAction = UIAlertAction(title: "Ok", style: .cancel)
 		alert.addAction(okAction)
+		
 		present(alert, animated: true)
 	}
 }

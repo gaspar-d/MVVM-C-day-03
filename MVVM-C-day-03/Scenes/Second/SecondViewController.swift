@@ -22,7 +22,6 @@ final class SecondViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
 		buildView()
 		setUpViewLabel()
 		setUpButtonAction()
@@ -37,7 +36,6 @@ final class SecondViewController: UIViewController {
 	
 	private func setUpViewLabel() {
 		guard let name = viewModel.getName else { return }
-		
 		customView?.setNameLabel(label: name)
 	}
 	

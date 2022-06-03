@@ -12,8 +12,7 @@ final class SecondViewModel: NSObject {
 	private var dateValidator: DateValidator?
 	public var name: String?
 	
-	init(dateValidator:
-		 DateValidator = DateValidator.shared) {
+	init(dateValidator: DateValidator = DateValidator.shared) {
 		self.dateValidator = dateValidator
 	}
 	

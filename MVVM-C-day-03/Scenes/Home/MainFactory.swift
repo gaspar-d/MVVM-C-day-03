@@ -10,7 +10,6 @@ import UIKit
 final class MainFactory {
 	
 	static func make() -> MainViewController {
-		
 		let service = Service()
 		let mainVM = MainViewModel(service: service)
 		let vc = MainViewController(viewModel: mainVM)

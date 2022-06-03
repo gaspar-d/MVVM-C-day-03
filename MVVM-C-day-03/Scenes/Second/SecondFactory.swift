@@ -10,7 +10,6 @@ import Foundation
 final class SecondFactory {
 	
 	static func make(name: String) -> SecondViewController {
-		
 		let secondVM = SecondViewModel()
 		secondVM.name = name
 		let vc = SecondViewController(viewModel: secondVM)

@@ -55,7 +55,6 @@ final class SecondView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
 		setUp()
 	}
 	

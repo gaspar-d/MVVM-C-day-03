@@ -12,7 +12,6 @@ final class Service: NSObject {
 	
 	override init() {
 		super.init()
-		
 		setData()
 	}
 	
