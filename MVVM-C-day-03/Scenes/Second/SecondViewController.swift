@@ -9,9 +9,9 @@ import UIKit
 
 final class SecondViewController: UIViewController {
 	private var customView: SecondView?
-	public var viewModel: SecondViewModel
+	public var viewModel: SecondViewModelProtocol
 	
-	init(viewModel: SecondViewModel) {
+	init(viewModel: SecondViewModelProtocol) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

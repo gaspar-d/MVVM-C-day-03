@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol ServiceProtocol: AnyObject {
+	var getData: Model? { get }
+}
+
 final class Service: NSObject {
 	private var data: Model?
 	
@@ -18,9 +22,11 @@ final class Service: NSObject {
 	private func setData() {
 		data = Model(labelA: "Login")
 	}
-	
-	public func getData() -> Model? {
-		return data
+}
+
+extension Service: ServiceProtocol {
+	var getData: Model? {
+		data
 	}
 }
 

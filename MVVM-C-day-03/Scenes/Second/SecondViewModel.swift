@@ -7,6 +7,14 @@
 
 import Foundation
 
+protocol SecondViewModelProtocol: AnyObject {
+	func setCoordinator(with coordinator: Coordinator?)
+	var getName: String? { get }
+	func pushThirdVC(name: String, date: Date)
+	func dateValidation(date: Date) -> Int
+	func isDateValid(_ date: Date) -> Bool
+}
+
 final class SecondViewModel: NSObject {
 	weak var coordinator: Coordinator?
 	private var dateValidator: DateValidator?
@@ -14,6 +22,13 @@ final class SecondViewModel: NSObject {
 	
 	init(dateValidator: DateValidator = DateValidator.shared) {
 		self.dateValidator = dateValidator
+	}
+}
+
+extension SecondViewModel: SecondViewModelProtocol {
+	
+	public func setCoordinator(with coordinator: Coordinator?) {
+		self.coordinator = coordinator
 	}
 	
 	public var getName: String? {
@@ -26,7 +41,7 @@ final class SecondViewModel: NSObject {
 		coordinator?.eventOccurred(with: .sendToThirdView(name, String(year)))
 	}
 	
-	private func dateValidation(date: Date) -> Int {
+	public func dateValidation(date: Date) -> Int {
 		guard let year = dateValidator?.formatDateToAge(date: date) else { return 0 }
 		
 		return year

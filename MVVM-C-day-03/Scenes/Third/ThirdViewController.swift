@@ -9,9 +9,9 @@ import UIKit
 
 final class ThirdViewController: UIViewController {
 	private var customView: ThirdView?
-	public var viewModel: ThirdViewModel
+	public var viewModel: ThirdViewModelProtocol
 	
-	init(viewModel: ThirdViewModel) {
+	init(viewModel: ThirdViewModelProtocol) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

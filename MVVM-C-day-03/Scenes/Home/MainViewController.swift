@@ -9,9 +9,9 @@ import UIKit
 
 final class MainViewController: UIViewController {
 	private var customView: MainView?
-	public var viewModel: MainViewModel
+	public var viewModel: MainViewModelProtocol
 	
-	init(viewModel: MainViewModel) {
+	init(viewModel: MainViewModelProtocol) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
