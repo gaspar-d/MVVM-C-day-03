@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SecondViewModelProtocol: AnyObject {
-	func setCoordinator(with coordinator: Coordinator?)
+	var coordinator: Coordinator? { get set }
 	var getName: String? { get }
 	func pushThirdVC(name: String, date: Date)
 	func dateValidation(date: Date) -> Int
@@ -26,10 +26,6 @@ final class SecondViewModel: NSObject {
 }
 
 extension SecondViewModel: SecondViewModelProtocol {
-	
-	public func setCoordinator(with coordinator: Coordinator?) {
-		self.coordinator = coordinator
-	}
 	
 	public var getName: String? {
 		return name

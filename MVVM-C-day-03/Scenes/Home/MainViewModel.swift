@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainViewModelProtocol: AnyObject {
-	func setCoordinator(with coordinator: Coordinator?)
+	var coordinator: Coordinator? { get set }
 	var getLabelA: String? { get }
 	func pushSecondVC(name: String)
 	func validateName(_ name: String) -> Bool
