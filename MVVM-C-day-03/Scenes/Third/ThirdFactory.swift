@@ -19,4 +19,3 @@ enum ThirdFactory {
 		return vc
 	}
 }
-
