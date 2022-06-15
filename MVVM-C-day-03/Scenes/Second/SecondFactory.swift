@@ -7,11 +7,12 @@
 
 import Foundation
 
-final class SecondFactory {
+enum SecondFactory {
 	
-	static func make(name: String) -> SecondViewController {
+	static func make(name: String, coordinator: Coordinator) -> SecondViewController {
 		let secondVM = SecondViewModel()
 		secondVM.name = name
+		secondVM.coordinator = coordinator
 		let vc = SecondViewController(viewModel: secondVM)
 		
 		return vc

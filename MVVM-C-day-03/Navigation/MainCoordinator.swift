@@ -18,20 +18,17 @@ final class MainCoordinator: Coordinator {
 	public func eventOccurred(with event: Event) {
 		switch event {
 		case let .sendToSecondView(name):
-			let vc = SecondFactory.make(name: name)
-			vc.viewModel.coordinator = self
+			let vc = SecondFactory.make(name: name, coordinator: self)
 			navigationController.pushViewController(vc, animated: true)
 			
 		case let .sendToThirdView(name, age):
-			let vc = ThirdFactory.make(name: name, age: age)
-			vc.viewModel.coordinator = self
+			let vc = ThirdFactory.make(name: name, age: age, coordinator: self)
 			navigationController.pushViewController(vc, animated: true)
 		}
 	}
 	
 	public func start() {
-		let vc = MainFactory.make()
-		vc.viewModel.coordinator = self
+		let vc = MainFactory.make(coordinator: self)
 		navigationController.show(vc, sender: self)
 	}
 }

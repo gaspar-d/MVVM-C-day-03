@@ -8,7 +8,6 @@
 import Foundation
 
 protocol SecondViewModelProtocol: AnyObject {
-	var coordinator: Coordinator? { get set }
 	var getName: String? { get }
 	func pushThirdVC(name: String, date: Date)
 	func dateValidation(date: Date) -> Int

@@ -8,6 +8,7 @@
 import UIKit
 
 final class SecondViewController: UIViewController {
+	
 	private var customView: SecondView?
 	public var viewModel: SecondViewModelProtocol
 	

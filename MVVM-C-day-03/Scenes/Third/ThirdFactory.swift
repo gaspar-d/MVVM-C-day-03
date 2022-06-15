@@ -7,12 +7,13 @@
 
 import Foundation
 
-final class ThirdFactory {
+enum ThirdFactory {
 	
-	static func make(name: String, age: String) -> ThirdViewController {
+	static func make(name: String, age: String, coordinator: Coordinator) -> ThirdViewController {
 		let thirdVM = ThirdViewModel()
 		thirdVM.name = name
 		thirdVM.age = age
+		thirdVM.coordinator = coordinator
 		let vc = ThirdViewController(viewModel: thirdVM)
 		
 		return vc
